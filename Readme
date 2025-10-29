@@ -1,0 +1,26 @@
+Done — I created a step-by-step project document titled **“Dopantry Pal — Fullstack Plan & Step-by-Step Guide”** in the canvas.
+
+Open it to see the full requirements, API design, data models, folder structure, implementation roadmap, deployment checklist, and creative stretch ideas.
+
+cd server
+npm init -y
+npm install express mongoose dotenv cors bcrypt jsonwebtoken morgan  multer csv-parser
+npm install --save-dev nodemon
+
+We’ll build it step-by-step until it’s 100 % working (auth + pantry CRUD + alerts + import/export).
+
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+🧠 Morgan = automatic request logger for Express — very handy for debugging and monitoring your 
+backend.
+
+
+Optional Enhancements for MVP
+
+Upload images for items
+
+Add barcode scanning
+
+Add notifications for soon-to-expire items
+
+Share pantries among users (householdId)
