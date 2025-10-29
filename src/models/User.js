@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import validator from "validator"; // ✅ import validator library
 
 const userSchema = new mongoose.Schema(
   {
@@ -12,7 +13,10 @@ const userSchema = new mongoose.Schema(
       required: [true, "Email is required"],
       unique: true,
       lowercase: true,
-      match: [/^\\S+@\\S+\\.\\S+$/, "Invalid email format"],
+      validate: {
+        validator: validator.isEmail, // ✅ use validator library
+        message: "Invalid email format",
+      },
     },
     passwordHash: {
       type: String,
@@ -22,7 +26,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    
   },
   { timestamps: true }
 );
