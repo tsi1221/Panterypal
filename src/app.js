@@ -24,7 +24,7 @@ const app = express();
 // ✅ CORS Configuration
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://panterypal.vercel.app/"
+  "https://pantrypal-e.vercel.app/",
 ];
 
 app.use(
