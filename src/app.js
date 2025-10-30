@@ -22,12 +22,22 @@ connectDB();
 const app = express();
 
 // ✅ CORS Configuration
+const allowedOrigins = ["https://pantrypal-e.vercel.app"];
+
 app.use(
   cors({
-    origin: "*", // Allow all origins
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        // Allow request
+        callback(null, true);
+      } else {
+        // Reject request
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, // Note: with origin "*" credentials won't work
+    credentials: true, // Works now because origin is specific
   })
 );
 
